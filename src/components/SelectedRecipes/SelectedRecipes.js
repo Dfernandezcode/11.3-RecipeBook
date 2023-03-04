@@ -1,6 +1,6 @@
 import './SelectedRecipes.css'
 import React from "react"
-import AddRecipes from './AddRecipes/AddRecipes'
+import AddRecipes from '../AddRecipes/AddRecipes'
 
 const SelectedRecipes = (props) => {
 
