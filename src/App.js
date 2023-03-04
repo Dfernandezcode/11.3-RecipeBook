@@ -67,7 +67,7 @@ function App() {
     console.log(recipeDetail)
 
   return (
-    <div className="app">
+    <div className="recipe-book">
       <AddRecipes addRecipes={addRecipes}></AddRecipes>
       <RecipesList recipesList={recipeList} getDetailsRecipe={getDetailsRecipe}></RecipesList>
       {(!recipeDetail) ? <p>Selecciona una receta</p> : <SelectedRecipes recipeDetail={recipeDetail} addIngredient={addIngredient}></SelectedRecipes>}

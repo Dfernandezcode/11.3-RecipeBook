@@ -18,7 +18,7 @@ const AddRecipes =  (props) => {
     }
 
     return (
-        <div>
+        <div className='add-recipe'>
             <h2>Añade nueva receta</h2>
             <form onSubmit={(event) => {newRecipeRef(event)}}>
                 <fieldset>
