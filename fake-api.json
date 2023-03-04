@@ -88,9 +88,9 @@
       "id": 5
     },
     {
-      "name": "",
-      "serving": 0,
-      "imageUrl": "",
+      "name": "Lasaña",
+      "numPeople": "4",
+      "imageUrl": "https://www.shutterstock.com/shutterstock/photos/1688376010/display_1500/stock-photo-piece-of-tasty-hot-lasagna-served-with-a-basil-leaf-on-a-gray-plate-italian-cuisine-menu-recipe-1688376010.jpg",
       "ingredients": [],
       "id": 6
     }

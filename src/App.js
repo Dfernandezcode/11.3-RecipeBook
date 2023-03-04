@@ -1,45 +1,48 @@
-import React from "react";
-import "./App.css";
-import AddRecipe from "./components/AddRecipe/AddRecipe";
-
-
+import './App.css';
+import AddRecipes from './components/AddRecipes/AddRecipes';
+import React from 'react';
+import RecipesList from './components/RecipesList/RecipesList';
 
 const API_URL = "http://localhost:4000/recipes/"
 
 function App() {
-  const [newRecipe, setNewRecipe] = React.useState({
-    name: "",
-    serving: 0,
-    imageUrl: "",
-    ingredients: [],
-  });
-  console.log(newRecipe);
+  
+  const [recipeList, setRecipeList] = React.useState([])
 
-  const addRecipes = (event) => {
-    event.preventDefault();
+  React.useEffect(() => {
+    getRecipesList()
+  },[])
+
+
+  const addRecipes = (event, newRecipe) =>{
+    event.preventDefault()
     fetch(API_URL, {
-      method: "POST",
-      body: JSON.stringify(newRecipe),
-      headers: { "Content-type": "application/json" },
+      method : "POST",
+      body : JSON.stringify(newRecipe),
+      headers : {
+        "Content-Type" : "application/json"
+      }
     })
+    .then(response => response.json())
+    .then(data => {
+        getRecipesList()
+    })
+  }
+
+    const getRecipesList = () => {
+      fetch(API_URL)
       .then(response => response.json())
-      .then((data) => {
-        setNewRecipe({
-          name: "",
-          serving: 0,
-          imageUrl: "",
-          ingredients: [],
-        });
-      });
-  };
+      .then(data => {
+        setRecipeList(data)
+      })
+    }
+
+    console.log(recipeList)
 
   return (
-    <div className="App">
-      <AddRecipe
-        newRecipe={newRecipe}
-        setNewRecipe={setNewRecipe}
-        addRecipes={addRecipes}
-      ></AddRecipe>
+    <div className="app">
+      <AddRecipes addRecipes={addRecipes}></AddRecipes>
+      <RecipesList recipesList={recipeList}></RecipesList>
     </div>
   );
 }
