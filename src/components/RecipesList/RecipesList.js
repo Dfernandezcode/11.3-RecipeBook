@@ -1,5 +1,5 @@
 import './RecipesList.css'
-import React from "react"
+import React from 'react'
 import RecipesItems from './RecipesItems/RecipesItems'
 
 const RecipesList =  React.memo((props) => {
